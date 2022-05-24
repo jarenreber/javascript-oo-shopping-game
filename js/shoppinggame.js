@@ -5,9 +5,9 @@ const score = 0;
 const items = 0;
 // Define the player object here
 const player = {
-  name: undefined,
-  score: undefined,
-  items: undefined,
+  name,
+  score,
+  items,
 
   getCurrentScore() {
     return this.score;
