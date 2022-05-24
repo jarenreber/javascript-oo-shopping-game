@@ -35,6 +35,7 @@ class Product {
 // Complete the dateDiff function
 const dateDiff = (date1, date2) => {
   let diff = Math.ceil(date1.getTime()) - Math.ceil(date2.getTime());
+  return diff;
 };
 
 // Here, use Object.defineProperty to create property - daysToExpire
