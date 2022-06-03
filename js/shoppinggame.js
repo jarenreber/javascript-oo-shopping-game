@@ -264,7 +264,7 @@ const getProduct = (prodList, pId) => {
 
 // Complete this function
 const calculateBill = (prod, tBill) => {
-  return;
+  return tBill + prod.price;
 };
 
 const findPointsToBill = (roundedTotal) => {
@@ -287,15 +287,20 @@ const findPointsToBill = (roundedTotal) => {
 
 // Complete this function
 const findPointsForExpDate = (prod) => {
-  if (prod.daysToExpire < 30) {
-    return 10;
-  } else return 0;
+  return prod.daysToExpire < 30 ? 10 : 0;
 };
 
 const calculatePoints = (prod, tBill) => {
   let pointsToBill = findPointsToBill(Math.round(tBill));
   let pointsForExpDate = findPointsForExpDate(prod);
-  let score = player.score + pointsToBill + pointsForExpDate;
+  player.score = player.score + pointsToBill + pointsForExpDate;
+  if (prod instanceof MagicProduct) {
+    if (prod.isBonus) {
+      player.addPoints(prod.points);
+    } else {
+      player.deductPoints(prod.points);
+    }
+  }
 };
 
 // Complete this function
