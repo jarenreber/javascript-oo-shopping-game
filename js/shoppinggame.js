@@ -398,6 +398,7 @@ const shop = (prodList, tBill, lastProd) => {
 // Complete this function
 const rateAndExit = () => {
   // Create a new instance of Rating and assign it to a variable named playerRating here
+  const playerRating = new Rating();
   rl.question(
     "How would you rate this game on a scale of 1-10 (1 being the lowest)?:",
     function (r) {
@@ -406,6 +407,7 @@ const rateAndExit = () => {
         rateAndExit();
       } else {
         // Call rating setter method of playerRating to set user entered rate value here
+        r = playerRating.rating;
 
         // Call Object.assign() method here to populate target
 
